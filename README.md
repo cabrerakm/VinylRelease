@@ -55,31 +55,98 @@ Because I had some issues with starting the project and wanted to have a minimum
 - `404`   Artist not found
 
 **Sample Response Body**:
-
+```json
+{
+  "statusCode": 200,
+  "statusDescription": "Successful fetch of artist",
+  "data": [
+    {
+      "artistId": 1,
+      "artistName": "Turnstile",
+      "artistDesc": "Hardcore band from Baltimore/DC/Ohio area, USA",
+      "masters": [
+        {
+          "masterId": 5,
+          "masterName": "Glow On",
+          "masterYear": 2021,
+          "artists": []
+        },
+        {
+          "masterId": 6,
+          "masterName": "Time & Space",
+          "masterYear": 2018,
+          "artists": []
+        },
+        {
+          "masterId": 7,
+          "masterName": "Nonstop Feeling",
+          "masterYear": 2016,
+          "artists": []
+        },
+        {
+          "masterId": 8,
+          "masterName": "Step to Rhythm",
+          "masterYear": 2013,
+          "artists": []
+        }
+      ]
+    }
+  ]
+}
+```
 
 
 ### `POST api/Artists`
-**Description**:
+**Description**: Submit an Artist. Returns back the entry in the database.
 
-**Request Body Requirements**: 
+**Request Body Requirements**: Do not provide Artist Id; Needs to have Artist name. Artist description is optional. At this moment, can provide Masters for Artist but this will be removed later.
 
 **Sample Request Body**:
+```json
+{
+  "artistName": "Idles",
+  "artistDesc": " British heavy indie/punk band from Bristol, London, and Newport."
+}
+```
 
 **StatusCodes**:
+- `201`   Successfully added the Artist
+- `400`   Bad request; please check request body
 
 **Sample Response Body**:
-
+```json
+{
+  "statusCode": 201,
+  "statusDescription": "Added the artist",
+  "data": [
+    {
+      "artistId": 13,
+      "artistName": "Idles",
+      "artistDesc": " British heavy indie/punk band from Bristol, London, and Newport.",
+      "masters": []
+    }
+  ]
+}
+```
 
 
 ### `DELETE api/Artists/{artist_id}`
-**Description**: 
+**Description**: Deletes an Artist using the artistId
 
-**Request Body Requirements**: 
+**Request Body Requirements**: None
 
 **StatusCodes**:
+- `200` Artist successfully deleted
+- `404` Artist not found
 
 **Sample Response Body**:
-
+```json
+{
+  "statusCode": 200,
+  "statusDescription": "Artist deleted",
+  "data": null
+}
+```
 
 
 # Issues Encountered During Development
