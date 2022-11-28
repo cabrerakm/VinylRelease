@@ -16,7 +16,9 @@ Because I had some issues with starting the project and wanted to have a minimum
 **StatusCodes**:
 - `200`   Successful fetch of Artists
 
-**Sample Reponse Body**:
+<details>
+<summary><b>Sample Reponse Body</b>:</summary>
+
 ```json
 {
   "statusCode": 200,
@@ -43,6 +45,7 @@ Because I had some issues with starting the project and wanted to have a minimum
   ]
 }
 ```
+</details>
 
 
 ### `GET api/Artists/{artistId}`
@@ -54,7 +57,9 @@ Because I had some issues with starting the project and wanted to have a minimum
 - `200`   Successful fetch of artist
 - `404`   Artist not found
 
-**Sample Response Body**:
+<details>
+<summary><b>Sample Reponse Body</b>:</summary>
+
 ```json
 {
   "statusCode": 200,
@@ -94,26 +99,31 @@ Because I had some issues with starting the project and wanted to have a minimum
   ]
 }
 ```
-
+</details>
 
 ### `POST api/Artists`
 **Description**: Submit an Artist. Returns back the entry in the database.
 
 **Request Body Requirements**: Do not provide Artist Id; Needs to have Artist name. Artist description is optional. At this moment, can provide Masters for Artist but this will be removed later.
 
-**Sample Request Body**:
+<details>
+<summary><b>Sample Request Body</b>:</summary>
+
 ```json
 {
   "artistName": "Idles",
   "artistDesc": " British heavy indie/punk band from Bristol, London, and Newport."
 }
 ```
+</details>
 
 **StatusCodes**:
 - `201`   Successfully added the Artist
 - `400`   Bad request; please check request body
 
-**Sample Response Body**:
+<details>
+<summary><b>Sample Reponse Body</b>:</summary>
+
 ```json
 {
   "statusCode": 201,
@@ -128,7 +138,7 @@ Because I had some issues with starting the project and wanted to have a minimum
   ]
 }
 ```
-
+</details>
 
 ### `DELETE api/Artists/{artist_id}`
 **Description**: Deletes an Artist using the artistId
@@ -139,7 +149,9 @@ Because I had some issues with starting the project and wanted to have a minimum
 - `200` Artist successfully deleted
 - `404` Artist not found
 
-**Sample Response Body**:
+<details>
+<summary><b>Sample Reponse Body</b>:</summary>
+
 ```json
 {
   "statusCode": 200,
@@ -147,7 +159,7 @@ Because I had some issues with starting the project and wanted to have a minimum
   "data": null
 }
 ```
-
+</details>
 
 # Issues Encountered During Development
 While coding this project, I came across a few issues that had to be addressed before continuing.
