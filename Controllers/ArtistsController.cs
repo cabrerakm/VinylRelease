@@ -115,18 +115,15 @@ namespace VinylRelease.Controllers
 
         // POST: api/Artists
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        // TODO
-
         [HttpPost]
         public async Task<ActionResult<Models.Response<Artist>>> PostArtist(Artist artist)
         {
             var response = new Models.Response<Artist>();
-            // Model validation
-            // Validating the artist
+
             if (artist.ArtistName == null)
             {
                 response.StatusCode = 400;
-                response.StatusDescription = "Bad request; Need to add in artist's Nnme";
+                response.StatusDescription = "Bad request; Need to add in artist's Name";
                 return BadRequest(response);
             }
             if (artist.ArtistId != 0)
@@ -139,14 +136,18 @@ namespace VinylRelease.Controllers
             // TODO: validate the masters within the artist
             
 
-            _context.Artists.Add(artist);
+            Artist a = _context.Artists.Add(artist).Entity;
             await _context.SaveChangesAsync();
 
             //return CreatedAtAction("GetArtist", new { id = artist.ArtistId }, artist);
-            //CreatedAtAction("GetArtist", new { id = artist.ArtistId }, artist);
 
             response.StatusCode = 201;
             response.StatusDescription = "Added the artist";
+            
+            var data = new List<Artist>();
+            data.Add(a);
+            response.Data = data;
+
             return Created("GetArtist", response);
         }
 
